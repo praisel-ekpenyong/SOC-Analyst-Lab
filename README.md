@@ -111,16 +111,15 @@ Each analysis includes: email header analysis, SPF/DKIM/DMARC checks, URL reputa
 
 ## 🎓 Certifications
 
-- **Pursuing:** CompTIA Security+ (SY0-701)
-- **Pursuing:** CompTIA CySA+ (CS0-003)
-- **Pursuing:** Security Blue Team Level 1 (BTL1)
+- **Completed:** CompTIA Security+
 - **Completed:** Splunk Fundamentals 1
+- **Completed:** Google Cybersecurity Certificate
 
 ## 📫 Contact
 
-- **LinkedIn:** [Your LinkedIn Profile]
-- **Email:** [your.email@example.com]
-- **GitHub:** [github.com/praisel-ekpenyong]
+- **LinkedIn:** [linkedin.com/in/praiselekpenyong](https://www.linkedin.com/in/praiselekpenyong)
+- **Email:** ekpenyongpraisel@gmail.com
+- **GitHub:** [github.com/praisel-ekpenyong](https://github.com/praisel-ekpenyong)
 
 ---
 

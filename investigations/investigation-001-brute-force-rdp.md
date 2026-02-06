@@ -2,7 +2,7 @@
 
 ## Alert Details
 
-- **Date:** 2026-01-15
+- **Date:** 2025-10-15
 - **Alert Source:** Splunk SIEM
 - **Alert Name:** Brute Force - Multiple Failed Logins
 - **Severity:** Critical
@@ -73,7 +73,7 @@ index=windows_security EventCode=4625 src_ip="185.220.101.42" earliest="2026-01-
 
 **Query 2: Check for successful authentication**
 ```spl
-index=windows_security EventCode=4624 src_ip="185.220.101.42" earliest="2026-01-15T06:00:00"
+index=windows_security EventCode=4624 src_ip="185.220.101.42" earliest="2025-10-15T06:00:00"
 | table _time, Account_Name, Logon_Type, Workstation_Name
 ```
 
@@ -81,7 +81,7 @@ index=windows_security EventCode=4624 src_ip="185.220.101.42" earliest="2026-01-
 
 **Query 3: Post-authentication activity**
 ```spl
-index=windows_security ComputerName="DC01" Account_Name="j.martinez" earliest="2026-01-15T08:22:51"
+index=windows_security ComputerName="DC01" Account_Name="j.martinez" earliest="2025-10-15T08:22:51"
 | table _time, EventCode, Activity, Target_Account
 ```
 
@@ -95,7 +95,7 @@ index=windows_security ComputerName="DC01" Account_Name="j.martinez" earliest="2
 
 **Sysmon Analysis:**
 ```spl
-index=windows_sysmon ComputerName="DC01" User="j.martinez" earliest="2026-01-15T08:22:51" latest="2026-01-15T08:30:00"
+index=windows_sysmon ComputerName="DC01" User="j.martinez" earliest="2025-10-15T08:22:51" latest="2025-10-15T08:30:00"
 | table _time, EventCode, Image, CommandLine, TargetObject
 | sort _time
 ```
@@ -108,7 +108,7 @@ index=windows_sysmon ComputerName="DC01" User="j.martinez" earliest="2026-01-15T
 
 **Network Connections:**
 ```spl
-index=windows_sysmon EventCode=3 ComputerName="DC01" earliest="2026-01-15T08:22:51" latest="2026-01-15T08:30:00"
+index=windows_sysmon EventCode=3 ComputerName="DC01" earliest="2025-10-15T08:22:51" latest="2025-10-15T08:30:00"
 | table _time, Image, DestinationIp, DestinationPort
 ```
 
@@ -159,7 +159,7 @@ index=windows_security src_ip="185.220.101.42" ComputerName!=DC01
 
 **Question: Did attacker access sensitive data?**
 ```spl
-index=windows_security ComputerName="DC01" EventCode=4663 Account_Name="j.martinez" earliest="2026-01-15T08:22:51"
+index=windows_security ComputerName="DC01" EventCode=4663 Account_Name="j.martinez" earliest="2025-10-15T08:22:51"
 | table _time, Object_Name, Access_Mask
 ```
 

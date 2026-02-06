@@ -6,11 +6,11 @@ This directory contains detailed incident response investigations conducted in t
 
 | ID | Title | Date | Severity | ATT&CK Technique | Verdict |
 |----|-------|------|----------|------------------|---------|
-| 001 | RDP Brute Force Attack | 2026-01-15 | Critical | T1110.001 - Brute Force | True Positive |
-| 002 | Malware Execution via Macro | 2026-01-18 | Critical | T1204.002 - Malicious File | True Positive |
-| 003 | Lateral Movement with PsExec | 2026-01-22 | High | T1021.002 - SMB/Admin Shares | True Positive |
-| 004 | Suspicious PowerShell Activity | 2026-01-25 | High | T1059.001 - PowerShell | True Positive |
-| 005 | Data Exfiltration | 2026-01-28 | Critical | T1048 - Exfiltration | True Positive |
+| 001 | RDP Brute Force Attack | 2025-10-15 | Critical | T1110.001 - Brute Force | True Positive |
+| 002 | Malware Execution via Macro | 2025-10-18 | Critical | T1204.002 - Malicious File | True Positive |
+| 003 | Lateral Movement with PsExec | 2025-10-22 | High | T1021.002 - SMB/Admin Shares | True Positive |
+| 004 | Suspicious PowerShell Activity | 2025-10-25 | High | T1059.001 - PowerShell | True Positive |
+| 005 | Data Exfiltration | 2025-10-28 | Critical | T1048 - Exfiltration | True Positive |
 
 ## Investigation Methodology
 
