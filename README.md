@@ -15,6 +15,14 @@ This portfolio demonstrates my ability to deploy, configure, and operate industr
 5. [Tools & Technologies](#tools--technologies)
 6. [Skills Demonstrated](#skills-demonstrated)
 7. [Certifications](#certifications)
+## Start Here
+
+If you're short on time, explore these highlights:
+
+- **Investigation:** [RDP Brute Force Investigation](investigations/investigation-001-brute-force-rdp.md) – a complete timeline from alert to containment.
+- **Detection Rule:** [Data Exfiltration Detection](detection-rules/data-exfiltration-detection.md) – demonstrates how to detect suspicious outbound activity.
+- **Phishing Report:** [Credential Harvesting Analysis](phishing-analysis/phishing-001-credential-harvesting.md) – a breakdown of a phishing campaign and recommended response.
+
 8. [Contact](#contact)
 
 ## 🏗️ Lab Environment Setup
