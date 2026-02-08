@@ -125,7 +125,6 @@ Each analysis includes: email header analysis, SPF/DKIM/DMARC checks, URL reputa
 
 ## 📫 Contact
 
-- **LinkedIn:** [linkedin.com/in/praiselekpenyong](https://www.linkedin.com/in/praiselekpenyong)
 - **Email:** ekpenyongpraisel@gmail.com
 - **GitHub:** [github.com/praisel-ekpenyong](https://github.com/praisel-ekpenyong)
 
