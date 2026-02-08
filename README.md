@@ -120,7 +120,7 @@ Each analysis includes: email header analysis, SPF/DKIM/DMARC checks, URL reputa
 ## 🎓 Certifications
 
 - **Completed:** CompTIA Security+
-- **Completed:** Splunk Fundamentals 1
+- **Completed:** Splunk Core User
 - **Completed:** Google Cybersecurity Certificate
 
 ## 📫 Contact
