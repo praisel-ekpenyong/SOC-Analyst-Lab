@@ -120,10 +120,10 @@ Each analysis includes: email header analysis, SPF/DKIM/DMARC checks, URL reputa
 ## 🎓 Certifications
 
 - **Completed:** CompTIA Security+
-- **Completed:** Splunk Core Certification User
+- **Completed:** Splunk Core Certified User
 - **Completed:** Google Cybersecurity Certificate
 - **Completed:** Azure Fundamentals (AZ900)
-- **In Progress:** ServiceNow System Administrator
+- **In Progress:** ServiceNow Certified System Administrator
 - **Planned:** CyberDefenders CCD
 
 ## 📫 Contact
