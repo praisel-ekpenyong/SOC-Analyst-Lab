@@ -1,10 +1,11 @@
 """Scoring data models."""
 
 from typing import List, Dict, Optional
-from pydantic import BaseModel, Field
+from dataclasses import dataclass, field
 
 
-class ScoreBreakdown(BaseModel):
+@dataclass
+class ScoreBreakdown:
     """Score breakdown model."""
     keywords_and_phrases: float = 0.0
     required_skills: float = 0.0
@@ -25,11 +26,12 @@ class ScoreBreakdown(BaseModel):
         )
 
 
-class ScoringResult(BaseModel):
+@dataclass
+class ScoringResult:
     """Scoring result model."""
     overall_score: float
     sub_scores: ScoreBreakdown
-    penalties: Dict[str, float] = Field(default_factory=dict)
-    score_explanation: List[str] = Field(default_factory=list)
-    top_contributors: List[dict] = Field(default_factory=list)
-    top_penalties: List[dict] = Field(default_factory=list)
+    penalties: Dict[str, float] = field(default_factory=dict)
+    score_explanation: List[str] = field(default_factory=list)
+    top_contributors: List[dict] = field(default_factory=list)
+    top_penalties: List[dict] = field(default_factory=list)

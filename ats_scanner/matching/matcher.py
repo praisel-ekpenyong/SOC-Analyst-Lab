@@ -2,7 +2,21 @@
 
 import re
 from typing import List, Optional
-from rapidfuzz import fuzz
+
+# Try to import rapidfuzz, but provide fallback
+try:
+    from rapidfuzz import fuzz
+    HAS_RAPIDFUZZ = True
+except ImportError:
+    from ..utils import ratio as fuzzy_ratio
+    HAS_RAPIDFUZZ = False
+    
+    # Create a simple fuzz module equivalent
+    class fuzz:
+        @staticmethod
+        def ratio(s1, s2):
+            return fuzzy_ratio(s1, s2)
+
 from ..models.resume import Resume, SectionType
 from ..models.job import JobPosting, JobRequirement
 from ..models.match import (

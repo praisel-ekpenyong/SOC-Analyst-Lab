@@ -1,7 +1,7 @@
 """Job posting data models."""
 
 from typing import List, Optional
-from pydantic import BaseModel, Field
+from dataclasses import dataclass, field
 from enum import Enum
 
 
@@ -26,7 +26,8 @@ class RequirementImportance(str, Enum):
     OTHER = "other"
 
 
-class JobRequirement(BaseModel):
+@dataclass
+class JobRequirement:
     """Job requirement model."""
     text: str
     category: RequirementCategory
@@ -34,13 +35,14 @@ class JobRequirement(BaseModel):
     original_span: str
     start_offset: int
     end_offset: int
-    keywords: List[str] = Field(default_factory=list)
+    keywords: List[str] = field(default_factory=list)
 
 
-class JobPosting(BaseModel):
+@dataclass
+class JobPosting:
     """Job posting model."""
     raw_text: str
-    requirements: List[JobRequirement] = Field(default_factory=list)
+    requirements: List[JobRequirement] = field(default_factory=list)
     title: Optional[str] = None
     company: Optional[str] = None
     

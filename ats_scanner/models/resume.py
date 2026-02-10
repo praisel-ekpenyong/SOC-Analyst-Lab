@@ -1,7 +1,7 @@
 """Resume data models."""
 
 from typing import List, Optional, Tuple
-from pydantic import BaseModel, Field
+from dataclasses import dataclass, field
 from enum import Enum
 
 
@@ -23,7 +23,8 @@ class SectionType(str, Enum):
     OTHER = "other"
 
 
-class ParsingWarning(BaseModel):
+@dataclass
+class ParsingWarning:
     """Parsing warning model."""
     message: str
     severity: SeverityLevel
@@ -31,7 +32,8 @@ class ParsingWarning(BaseModel):
     location: Optional[str] = None
 
 
-class ContactInfo(BaseModel):
+@dataclass
+class ContactInfo:
     """Contact information model."""
     email: Optional[str] = None
     phone: Optional[str] = None
@@ -40,7 +42,8 @@ class ContactInfo(BaseModel):
     website: Optional[str] = None
 
 
-class ResumeSection(BaseModel):
+@dataclass
+class ResumeSection:
     """Resume section model."""
     type: SectionType
     text: str
@@ -49,13 +52,14 @@ class ResumeSection(BaseModel):
     heading: Optional[str] = None
 
 
-class Resume(BaseModel):
+@dataclass
+class Resume:
     """Resume model."""
     full_text: str
-    sections: List[ResumeSection] = Field(default_factory=list)
-    contact_info: ContactInfo = Field(default_factory=ContactInfo)
-    page_boundaries: List[int] = Field(default_factory=list)
-    parsing_warnings: List[ParsingWarning] = Field(default_factory=list)
+    sections: List[ResumeSection] = field(default_factory=list)
+    contact_info: ContactInfo = field(default_factory=ContactInfo)
+    page_boundaries: List[int] = field(default_factory=list)
+    parsing_warnings: List[ParsingWarning] = field(default_factory=list)
     file_type: Optional[str] = None
     
     def get_section_text(self, section_type: SectionType) -> str:

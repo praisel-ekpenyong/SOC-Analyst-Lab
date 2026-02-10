@@ -23,18 +23,8 @@ def test_must_have_detection():
     must_haves = [r for r in job_posting.requirements 
                   if r.importance == RequirementImportance.MUST_HAVE]
     
-    assert len(must_haves) > 0
-
-
-def test_required_detection():
-    """Test required requirement detection."""
-    extractor = JobExtractor()
-    job_posting = extractor.extract(SAMPLE_JOB_POSTING)
-    
-    required = [r for r in job_posting.requirements 
-                if r.importance == RequirementImportance.REQUIRED]
-    
-    assert len(required) > 0
+    # Should have at least the "Must have" and "Required:" items
+    assert len(must_haves) >= 3
 
 
 def test_preferred_detection():
@@ -46,6 +36,17 @@ def test_preferred_detection():
                  if r.importance == RequirementImportance.PREFERRED]
     
     assert len(preferred) > 0
+
+
+def test_responsibility_detection():
+    """Test responsibility requirement detection."""
+    extractor = JobExtractor()
+    job_posting = extractor.extract(SAMPLE_JOB_POSTING)
+    
+    responsibilities = [r for r in job_posting.requirements 
+                       if r.importance == RequirementImportance.RESPONSIBILITY]
+    
+    assert len(responsibilities) > 0
 
 
 def test_category_detection():

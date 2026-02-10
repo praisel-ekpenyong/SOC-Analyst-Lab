@@ -2,8 +2,14 @@
 
 import re
 from typing import List, Tuple
-from docx import Document
 from ..models.resume import ParsingWarning, SeverityLevel
+
+# Try to import python-docx, but provide fallback
+try:
+    from docx import Document
+    HAS_DOCX = True
+except ImportError:
+    HAS_DOCX = False
 
 
 class DOCXParser:
@@ -15,6 +21,14 @@ class DOCXParser:
     def parse(self, file_path: str) -> Tuple[str, List[ParsingWarning]]:
         """Parse DOCX file and return text and warnings."""
         self.warnings = []
+        
+        if not HAS_DOCX:
+            self.warnings.append(ParsingWarning(
+                message="python-docx not available - DOCX parsing not supported",
+                severity=SeverityLevel.HIGH,
+                example="Install python-docx to parse DOCX files"
+            ))
+            return "", self.warnings
         
         try:
             doc = Document(file_path)

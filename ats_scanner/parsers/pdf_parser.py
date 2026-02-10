@@ -3,8 +3,14 @@
 import re
 from typing import List, Tuple
 from collections import Counter
-import pdfplumber
 from ..models.resume import ParsingWarning, SeverityLevel
+
+# Try to import pdfplumber, but provide fallback
+try:
+    import pdfplumber
+    HAS_PDFPLUMBER = True
+except ImportError:
+    HAS_PDFPLUMBER = False
 
 
 class PDFParser:
@@ -18,6 +24,14 @@ class PDFParser:
         """Parse PDF file and return text, page boundaries, and warnings."""
         self.warnings = []
         self.page_boundaries = []
+        
+        if not HAS_PDFPLUMBER:
+            self.warnings.append(ParsingWarning(
+                message="pdfplumber not available - PDF parsing not supported",
+                severity=SeverityLevel.HIGH,
+                example="Install pdfplumber to parse PDF files"
+            ))
+            return "", [], self.warnings
         
         all_text = []
         char_count = 0
