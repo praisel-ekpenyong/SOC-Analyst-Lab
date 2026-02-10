@@ -1,0 +1,35 @@
+John Doe
+john.doe@email.com | (555) 123-4567
+linkedin.com/in/johndoe | github.com/johndoe
+
+PROFESSIONAL SUMMARY
+Senior Software Engineer with 6 years of experience building scalable backend systems.
+Specialized in Python and cloud infrastructure.
+
+EXPERIENCE
+
+Senior Software Engineer | Tech Solutions Inc.
+June 2021 - Present
+- Built microservices architecture using Python and FastAPI serving 1M+ requests/day
+- Designed and implemented PostgreSQL database schemas for 5 major features
+- Led team of 3 junior engineers, conducting code reviews and mentoring
+- Automated deployment pipelines using Jenkins and Docker, reducing deployment time by 60%
+- Optimized database queries resulting in 40% performance improvement
+
+Software Engineer | StartupXYZ
+January 2018 - May 2021
+- Developed REST APIs using Python Django framework
+- Worked with AWS services including EC2, S3, RDS, and Lambda
+- Implemented CI/CD pipelines using CircleCI
+- Collaborated with frontend team on API design and integration
+- Supported production systems and performed on-call duties
+
+SKILLS
+Python, Django, FastAPI, PostgreSQL, MySQL, AWS, Docker, CI/CD, Git, REST API, Microservices, Jenkins, Redis
+
+EDUCATION
+Bachelor of Science in Computer Science
+State University, 2017
+
+CERTIFICATIONS
+AWS Certified Solutions Architect - Associate

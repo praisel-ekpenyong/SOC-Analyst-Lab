@@ -1,0 +1,48 @@
+================================================================================
+ATS SCANNER REPORT
+================================================================================
+
+OVERALL MATCH SCORE: 90.8/100
+
+SUB-SCORES:
+  • Keywords and Phrases:         10.8/20
+  • Required Skills:              25.0/25
+  • Responsibilities Alignment:   20.0/20
+  • Seniority and Scope:          15.0/15
+  • Tools and Systems:            10.0/10
+  • Education and Certifications: 10.0/10
+
+SCORE BREAKDOWN:
+  • Required Skills: +25.0 points
+  • Responsibilities Alignment: +20.0 points
+  • Seniority and Scope: +15.0 points
+
+✓ TOP STRENGTHS:
+  1. Must have 5+ years of software development experience
+     Evidence: "software..."
+  2. Required: Strong proficiency in Python and Go
+     Evidence: "of..."
+  3. Required: Experience with AWS cloud services
+     Evidence: "with..."
+  4. Required: Knowledge of PostgreSQL and database design
+     Evidence: "of..."
+  5. Preferred: Experience with Kubernetes and Docker
+     Evidence: "with..."
+
+✗ TOP GAPS:
+
+MISSING KEYWORDS (Top 10):
+  • Nice
+  • Knowledge
+  • Responsible
+  • Must
+  • Strong
+  • You
+  • Familiarity
+  • Preferred
+  • Kubernetes
+  • Terraform
+
+================================================================================
+Generated: 2026-02-10 23:27:40
+================================================================================

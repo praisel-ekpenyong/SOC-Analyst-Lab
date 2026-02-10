@@ -1,0 +1,29 @@
+Senior Software Engineer - Backend Systems
+
+Company: TechCorp Inc.
+
+About the Role:
+We are seeking an experienced Senior Software Engineer to join our backend team.
+
+Requirements:
+- Must have 5+ years of software development experience
+- Required: Strong proficiency in Python and Go
+- Required: Experience with AWS cloud services
+- Required: Knowledge of PostgreSQL and database design
+- Preferred: Experience with Kubernetes and Docker
+- Preferred: Familiarity with CI/CD pipelines
+- Nice to have: Experience with Terraform
+
+Responsibilities:
+- You will design and implement scalable backend services
+- You will lead code reviews and mentor junior engineers
+- Responsible for optimizing database performance
+- You will collaborate with frontend teams on API design
+
+Education:
+- Bachelor's degree in Computer Science or related field
+
+Skills:
+- Python, Go, AWS, PostgreSQL, REST API, Microservices
+- Docker, Kubernetes, CI/CD, Git
+- Strong communication and teamwork skills
