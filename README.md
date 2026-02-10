@@ -11,10 +11,13 @@ This portfolio demonstrates my ability to deploy, configure, and operate industr
 1. [Lab Environment Setup](#lab-environment-setup)
 2. [Detection Rules](#detection-rules)
 3. [Security Investigations](#security-investigations)
-4. [Phishing Analysis](#phishing-analysis)
-5. [Tools & Technologies](#tools--technologies)
-6. [Skills Demonstrated](#skills-demonstrated)
-7. [Certifications](#certifications)
+4. [Incident Response Playbooks](#incident-response-playbooks)
+5. [Phishing Analysis](#phishing-analysis)
+6. [Vulnerability Assessment](#vulnerability-assessment)
+7. [Tools & Technologies](#tools--technologies)
+8. [Skills Demonstrated](#skills-demonstrated)
+9. [Certifications](#certifications)
+
 ## Start Here
 
 If you're short on time, explore these highlights:
@@ -67,8 +70,21 @@ End-to-end incident response investigations demonstrating my analytical process:
 - **[Investigation 003: Lateral Movement with PsExec](investigations/investigation-003-lateral-movement-psexec.md)** - Compromised admin account used for lateral movement
 - **[Investigation 004: Suspicious PowerShell Activity](investigations/investigation-004-suspicious-powershell.md)** - Encoded PowerShell performing AD reconnaissance
 - **[Investigation 005: Data Exfiltration](investigations/investigation-005-data-exfiltration.md)** - Confidential data exfiltrated to external cloud storage
+- **[Investigation 007: Linux SSH Brute Force & Cryptominer](investigations/investigation-007-linux-ssh-bruteforce.md)** - External attacker brute forced SSH and deployed cryptominer on Ubuntu web server
 
 Each investigation includes: timeline of events, SIEM queries used, IOC analysis, threat intelligence enrichment, MITRE ATT&CK mapping, and recommended response actions.
+
+## 📋 Incident Response Playbooks
+
+Step-by-step SOC Tier 1 incident response playbooks for common security scenarios:
+
+- **[Playbooks Overview](playbooks/README.md)** - Complete SOC playbook methodology
+- **[Phishing Response Playbook](playbooks/playbook-phishing-response.md)** - Email threat triage and response procedures
+- **[Brute Force Response Playbook](playbooks/playbook-brute-force-response.md)** - Account compromise investigation and containment
+- **[Malware Response Playbook](playbooks/playbook-malware-response.md)** - Malware infection response and remediation
+- **[Suspicious Network Activity Playbook](playbooks/playbook-suspicious-network-activity.md)** - Network anomaly investigation procedures
+
+Each playbook includes: trigger conditions, step-by-step triage procedures, containment actions, escalation criteria, relevant SIEM queries, and MITRE ATT&CK mapping.
 
 ## 📧 Phishing Analysis
 
@@ -80,6 +96,15 @@ Comprehensive email threat analysis reports:
 - **[Phishing 003: Business Email Compromise](phishing-analysis/phishing-003-business-email-compromise.md)** - CEO impersonation wire fraud attempt
 
 Each analysis includes: email header analysis, SPF/DKIM/DMARC checks, URL reputation analysis, attachment sandbox analysis, IOC extraction, and recommended response actions.
+
+## 🔒 Vulnerability Assessment
+
+Vulnerability management documentation and assessment reports:
+
+- **[Vulnerability Assessment Overview](vulnerability-assessment/README.md)** - Vulnerability management methodology
+- **[Internal Network Vulnerability Assessment](vulnerability-assessment/vuln-assessment-001-internal-scan.md)** - Qualys/OpenVAS scan results with risk prioritization and remediation plan
+
+Each assessment includes: executive summary, detailed findings with CVE/CVSS scores, evidence, impact analysis, remediation steps, and prioritized remediation timeline.
 
 ## 🛠️ Tools & Technologies
 
@@ -109,12 +134,16 @@ Each analysis includes: email header analysis, SPF/DKIM/DMARC checks, URL reputa
 - **SIEM Operation:** Splunk query development (SPL), alert creation, dashboard building, log correlation
 - **Log Analysis:** Windows Event Logs (Security, System), Sysmon telemetry interpretation, firewall log analysis
 - **Incident Response:** Alert triage, investigation methodology, timeline reconstruction, IOC extraction, scope assessment
+- **Incident Response Playbooks:** SOC Tier 1 playbook development, triage procedures, escalation criteria, response workflows
 - **Threat Intelligence:** IOC enrichment using VirusTotal, AbuseIPDB, URLScan, threat actor TTPs
 - **MITRE ATT&CK Framework:** Tactic and technique mapping, adversary emulation, detection gap analysis
 - **Phishing Analysis:** Email header analysis, SPF/DKIM/DMARC validation, URL defanging, malware sandbox analysis
 - **Endpoint Security:** EDR alert investigation, process tree analysis, memory forensics, persistence mechanism identification
 - **Network Security:** Traffic analysis, protocol anomaly detection, data exfiltration patterns
+- **Network Traffic Analysis:** Wireshark PCAP analysis, C2 beaconing detection, TLS/JA3 fingerprinting, packet timing analysis
+- **Linux Security:** SSH log analysis, auth.log investigation, Linux system hardening, cron job analysis
 - **Active Directory Security:** Domain controller monitoring, authentication attack detection, privileged account monitoring
+- **Vulnerability Management:** Vulnerability scanning, risk prioritization, remediation tracking, CVSS scoring
 - **Documentation:** Technical writing, executive summary creation, professional reporting
 
 ## 🎓 Certifications
@@ -128,6 +157,7 @@ Each analysis includes: email header analysis, SPF/DKIM/DMARC checks, URL reputa
 
 ## 📫 Contact
 
+- **LinkedIn:** [linkedin.com/in/praiselekpenyong](https://linkedin.com/in/praiselekpenyong)
 - **Email:** ekpenyongpraisel@gmail.com
 - **GitHub:** [github.com/praisel-ekpenyong](https://github.com/praisel-ekpenyong)
 
