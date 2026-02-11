@@ -12,11 +12,12 @@ This portfolio demonstrates my ability to deploy, configure, and operate industr
 2. [Detection Rules](#detection-rules)
 3. [Security Investigations](#security-investigations)
 4. [Incident Response Playbooks](#incident-response-playbooks)
-5. [Phishing Analysis](#phishing-analysis)
-6. [Vulnerability Assessment](#vulnerability-assessment)
-7. [Tools & Technologies](#tools--technologies)
-8. [Skills Demonstrated](#skills-demonstrated)
-9. [Certifications](#certifications)
+5. [Ticketing System Integration](#ticketing-system-integration)
+6. [Phishing Analysis](#phishing-analysis)
+7. [Vulnerability Assessment](#vulnerability-assessment)
+8. [Tools & Technologies](#tools--technologies)
+9. [Skills Demonstrated](#skills-demonstrated)
+10. [Certifications](#certifications)
 
 ## Start Here
 
@@ -25,6 +26,7 @@ If you're short on time, explore these highlights:
 - **Investigation:** [RDP Brute Force Investigation](investigations/investigation-001-brute-force-rdp.md) – a complete timeline from alert to containment.
 - **Detection Rule:** [Data Exfiltration Detection](detection-rules/data-exfiltration-detection.md) – demonstrates how to detect suspicious outbound activity.
 - **Phishing Report:** [Credential Harvesting Analysis](phishing-analysis/phishing-001-credential-harvesting.md) – a breakdown of a phishing campaign and recommended response.
+- **Sample Ticket:** [RDP Brute Force Ticket](ticketing-integration/sample-tickets/ticket-001-rdp-bruteforce.md) – complete SOC ticket from automated alert to resolution.
 
 8. [Contact](#contact)
 
@@ -86,6 +88,25 @@ Step-by-step SOC Tier 1 incident response playbooks for common security scenario
 
 Each playbook includes: trigger conditions, step-by-step triage procedures, containment actions, escalation criteria, relevant SIEM queries, and MITRE ATT&CK mapping.
 
+## 🎫 Ticketing System Integration
+
+Integration of osTicket for complete SOC incident management workflow:
+
+- **[Ticketing Integration Overview](ticketing-integration/README.md)** - Complete guide to incident ticketing
+- **[osTicket Setup Guide](ticketing-integration/osticket-setup.md)** - Installation and configuration steps
+- **[Splunk Integration](ticketing-integration/splunk-integration.md)** - Automated ticket creation from SIEM alerts
+- **[Workflow Guide](ticketing-integration/workflow-guide.md)** - SOC ticket lifecycle and procedures
+- **[Sample Tickets](ticketing-integration/sample-tickets/)** - Real-world ticket examples with full documentation
+
+**Integration Features:**
+- Automated ticket creation from Splunk alerts via API/Email
+- Custom fields for SOC operations (MITRE ATT&CK, IOCs, affected systems)
+- Multi-tier escalation workflow (Tier 1 → Tier 2 → Tier 3)
+- SLA tracking and metrics dashboard
+- Integration with existing investigation and playbook processes
+
+This demonstrates complete incident management from detection through resolution, mirroring real-world SOC operations.
+
 ## 📧 Phishing Analysis
 
 Comprehensive email threat analysis reports:
@@ -118,6 +139,7 @@ Each assessment includes: executive summary, detailed findings with CVE/CVSS sco
 **Security Tools:**
 - **SIEM:** Splunk Free (SPL query development)
 - **EDR:** Wazuh Open Source
+- **Ticketing:** osTicket (incident management and SLA tracking)
 - **Endpoint Logging:** Sysmon (SwiftOnSecurity configuration)
 - **Threat Simulation:** Atomic Red Team
 - **Network Analysis:** Wireshark
@@ -135,6 +157,8 @@ Each assessment includes: executive summary, detailed findings with CVE/CVSS sco
 - **Log Analysis:** Windows Event Logs (Security, System), Sysmon telemetry interpretation, firewall log analysis
 - **Incident Response:** Alert triage, investigation methodology, timeline reconstruction, IOC extraction, scope assessment
 - **Incident Response Playbooks:** SOC Tier 1 playbook development, triage procedures, escalation criteria, response workflows
+- **Incident Ticketing:** osTicket setup, ticket lifecycle management, SLA tracking, case prioritization, escalation workflows
+- **ITSM Fundamentals:** IT Service Management workflows, escalation procedures, stakeholder communication, metrics tracking (MTTA, MTTR)
 - **Threat Intelligence:** IOC enrichment using VirusTotal, AbuseIPDB, URLScan, threat actor TTPs
 - **MITRE ATT&CK Framework:** Tactic and technique mapping, adversary emulation, detection gap analysis
 - **Phishing Analysis:** Email header analysis, SPF/DKIM/DMARC validation, URL defanging, malware sandbox analysis
