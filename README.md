@@ -2,9 +2,16 @@
 
 ## Introduction
 
-I am an entry-level SOC Analyst building hands-on experience through a comprehensive home lab environment. This repository showcases my practical skills in security monitoring, incident response, threat detection, and analysis—core competencies required for modern Security Operations Center roles.
+I am an entry-level SOC Analyst building hands-on experience through a home lab. This repository highlights practical skills in security monitoring, incident response, threat detection, and phishing analysis.
 
-This portfolio demonstrates my ability to deploy, configure, and operate industry-standard security tools, develop detection rules mapped to the MITRE ATT&CK framework, conduct thorough security investigations, and analyze phishing campaigns.
+## 🚀 Start Here (Quick Review)
+
+If you only have a few minutes, start with these:
+
+- **Investigation:** [RDP Brute Force Investigation](investigations/investigation-001-brute-force-rdp.md)
+- **Detection Rule:** [Data Exfiltration Detection](detection-rules/data-exfiltration-detection.md)
+- **Phishing Report:** [Credential Harvesting Analysis](phishing-analysis/phishing-001-credential-harvesting.md)
+- **Sample Ticket:** [RDP Brute Force Ticket](ticketing-integration/sample-tickets/ticket-001-rdp-bruteforce.md)
 
 ## 📋 Table of Contents
 
@@ -14,170 +21,119 @@ This portfolio demonstrates my ability to deploy, configure, and operate industr
 4. [Incident Response Playbooks](#incident-response-playbooks)
 5. [Ticketing System Integration](#ticketing-system-integration)
 6. [Phishing Analysis](#phishing-analysis)
-7. [Vulnerability Assessment](#vulnerability-assessment)
-8. [Tools & Technologies](#tools--technologies)
-9. [Skills Demonstrated](#skills-demonstrated)
-10. [Certifications](#certifications)
-
-## Start Here
-
-If you're short on time, explore these highlights:
-
-- **Investigation:** [RDP Brute Force Investigation](investigations/investigation-001-brute-force-rdp.md) – a complete timeline from alert to containment.
-- **Detection Rule:** [Data Exfiltration Detection](detection-rules/data-exfiltration-detection.md) – demonstrates how to detect suspicious outbound activity.
-- **Phishing Report:** [Credential Harvesting Analysis](phishing-analysis/phishing-001-credential-harvesting.md) – a breakdown of a phishing campaign and recommended response.
-- **Sample Ticket:** [RDP Brute Force Ticket](ticketing-integration/sample-tickets/ticket-001-rdp-bruteforce.md) – complete SOC ticket from automated alert to resolution.
-
-8. [Contact](#contact)
+7. [Tools & Technologies](#tools--technologies)
+8. [Skills Demonstrated](#skills-demonstrated)
+9. [Certifications](#certifications)
+10. [Contact](#contact)
 
 ## 🏗️ Lab Environment Setup
 
-Complete documentation of my virtualized SOC lab infrastructure:
+Build and configuration documentation for the lab:
 
-- **[Lab Architecture Overview](lab-setup/README.md)** - Prerequisites, hardware requirements, build order
-- **[Network Architecture Diagram](lab-setup/architecture-diagram.md)** - Visual representation of all systems and network topology
-- **[Sysmon Configuration](lab-setup/sysmon-setup.md)** - Advanced Windows logging with SwiftOnSecurity config
-- **[Splunk SIEM Setup](lab-setup/splunk-setup.md)** - Free Splunk deployment, data ingestion, and index configuration
-- **[Wazuh EDR Setup](lab-setup/wazuh-setup.md)** - Open-source endpoint detection and response platform
-- **[Active Directory Configuration](lab-setup/active-directory-setup.md)** - Enterprise domain environment with realistic OU structure
+- [Lab Setup Overview](lab-setup/README.md)
+- [Network Architecture Diagram](lab-setup/architecture-diagram.md)
+- [Sysmon Setup](lab-setup/sysmon-setup.md)
+- [Splunk SIEM Setup](lab-setup/splunk-setup.md)
+- [Wazuh EDR Setup](lab-setup/wazuh-setup.md)
+- [Active Directory Setup](lab-setup/active-directory-setup.md)
 
-**Lab Components:**
-- Windows Server 2019 (Active Directory Domain Controller)
-- Windows 10 Workstations (with Sysmon, Splunk UF, Wazuh Agent)
-- Ubuntu Server (Splunk Free, Wazuh Manager)
-- Kali Linux (Simulated attacker for testing)
-- Internal Network: 10.0.0.0/24
+**Core lab components:**
+- Windows Server 2019 (Domain Controller)
+- Windows 10 endpoints
+- Ubuntu Server (Splunk + Wazuh)
+- Kali Linux (attack simulation)
+- Internal network: `10.0.0.0/24`
 
 ## 🔍 Detection Rules
 
-Collection of custom detection rules developed using Splunk SPL, each mapped to MITRE ATT&CK techniques:
+Custom Splunk detection content mapped to MITRE ATT&CK:
 
-- **[Detection Rules Overview](detection-rules/README.md)** - Complete catalog of all detection rules
-- **[Brute Force Detection](detection-rules/brute-force-detection.md)** - Failed login attempts, account lockouts
-- **[PowerShell Abuse Detection](detection-rules/powershell-abuse-detection.md)** - Encoded commands, download cradles, suspicious parent-child relationships
-- **[Lateral Movement Detection](detection-rules/lateral-movement-detection.md)** - PsExec, RDP abuse, Pass-the-Hash
-- **[Persistence Detection](detection-rules/persistence-detection.md)** - Scheduled tasks, registry run keys, new services
-- **[Credential Access Detection](detection-rules/credential-access-detection.md)** - LSASS dumping, SAM database access
-- **[Data Exfiltration Detection](detection-rules/data-exfiltration-detection.md)** - Unusual outbound traffic, DNS tunneling
-
-All detection rules were tested using **Atomic Red Team** to ensure accuracy and validate true positive alerts.
+- [Detection Rules Overview](detection-rules/README.md)
+- [Brute Force Detection](detection-rules/brute-force-detection.md)
+- [PowerShell Abuse Detection](detection-rules/powershell-abuse-detection.md)
+- [Lateral Movement Detection](detection-rules/lateral-movement-detection.md)
+- [Persistence Detection](detection-rules/persistence-detection.md)
+- [Credential Access Detection](detection-rules/credential-access-detection.md)
+- [Data Exfiltration Detection](detection-rules/data-exfiltration-detection.md)
 
 ## 📊 Security Investigations
 
-End-to-end incident response investigations demonstrating my analytical process:
+End-to-end investigations showing triage and response workflow:
 
-- **[Investigation Overview](investigations/README.md)** - Summary of all investigations
-- **[Investigation 001: RDP Brute Force Attack](investigations/investigation-001-brute-force-rdp.md)** - External threat actor successfully compromised domain controller via brute force
-- **[Investigation 002: Malware Execution via Macro](investigations/investigation-002-malware-execution.md)** - User opened malicious Excel file resulting in C2 beacon
-- **[Investigation 003: Lateral Movement with PsExec](investigations/investigation-003-lateral-movement-psexec.md)** - Compromised admin account used for lateral movement
-- **[Investigation 004: Suspicious PowerShell Activity](investigations/investigation-004-suspicious-powershell.md)** - Encoded PowerShell performing AD reconnaissance
-- **[Investigation 005: Data Exfiltration](investigations/investigation-005-data-exfiltration.md)** - Confidential data exfiltrated to external cloud storage
-- **[Investigation 007: Linux SSH Brute Force & Cryptominer](investigations/investigation-007-linux-ssh-bruteforce.md)** - External attacker brute forced SSH and deployed cryptominer on Ubuntu web server
+- [Investigations Overview](investigations/README.md)
+- [Investigation 001: RDP Brute Force Attack](investigations/investigation-001-brute-force-rdp.md)
+- [Investigation 002: Malware Execution via Macro](investigations/investigation-002-malware-execution.md)
+- [Investigation 003: Lateral Movement with PsExec](investigations/investigation-003-lateral-movement-psexec.md)
+- [Investigation 004: Suspicious PowerShell Activity](investigations/investigation-004-suspicious-powershell.md)
+- [Investigation 005: Data Exfiltration](investigations/investigation-005-data-exfiltration.md)
 
-Each investigation includes: timeline of events, SIEM queries used, IOC analysis, threat intelligence enrichment, MITRE ATT&CK mapping, and recommended response actions.
+Each investigation includes timeline, SIEM queries, IOCs, MITRE ATT&CK mapping, and response recommendations.
 
 ## 📋 Incident Response Playbooks
 
-Step-by-step SOC Tier 1 incident response playbooks for common security scenarios:
+Tier 1 SOC response procedures for common scenarios:
 
-- **[Playbooks Overview](playbooks/README.md)** - Complete SOC playbook methodology
-- **[Phishing Response Playbook](playbooks/playbook-phishing-response.md)** - Email threat triage and response procedures
-- **[Brute Force Response Playbook](playbooks/playbook-brute-force-response.md)** - Account compromise investigation and containment
-- **[Malware Response Playbook](playbooks/playbook-malware-response.md)** - Malware infection response and remediation
-- **[Suspicious Network Activity Playbook](playbooks/playbook-suspicious-network-activity.md)** - Network anomaly investigation procedures
-
-Each playbook includes: trigger conditions, step-by-step triage procedures, containment actions, escalation criteria, relevant SIEM queries, and MITRE ATT&CK mapping.
+- [Playbooks Overview](playbooks/README.md)
+- [Phishing Response Playbook](playbooks/playbook-phishing-response.md)
+- [Brute Force Response Playbook](playbooks/playbook-brute-force-response.md)
+- [Malware Response Playbook](playbooks/playbook-malware-response.md)
 
 ## 🎫 Ticketing System Integration
 
-Integration of osTicket for complete SOC incident management workflow:
+osTicket integration for incident lifecycle management:
 
-- **[Ticketing Integration Overview](ticketing-integration/README.md)** - Complete guide to incident ticketing
-- **[osTicket Setup Guide](ticketing-integration/osticket-setup.md)** - Installation and configuration steps
-- **[Splunk Integration](ticketing-integration/splunk-integration.md)** - Automated ticket creation from SIEM alerts
-- **[Workflow Guide](ticketing-integration/workflow-guide.md)** - SOC ticket lifecycle and procedures
-- **[Sample Tickets](ticketing-integration/sample-tickets/)** - Real-world ticket examples with full documentation
-
-**Integration Features:**
-- Automated ticket creation from Splunk alerts via API/Email
-- Custom fields for SOC operations (MITRE ATT&CK, IOCs, affected systems)
-- Multi-tier escalation workflow (Tier 1 → Tier 2 → Tier 3)
-- SLA tracking and metrics dashboard
-- Integration with existing investigation and playbook processes
-
-This demonstrates complete incident management from detection through resolution, mirroring real-world SOC operations.
+- [Ticketing Integration Overview](ticketing-integration/README.md)
+- [osTicket Setup Guide](ticketing-integration/osticket-setup.md)
+- [Splunk Integration](ticketing-integration/splunk-integration.md)
+- [Workflow Guide](ticketing-integration/workflow-guide.md)
+- [Sample Tickets](ticketing-integration/sample-tickets/)
 
 ## 📧 Phishing Analysis
 
-Comprehensive email threat analysis reports:
+Practical analysis reports for common phishing techniques:
 
-- **[Phishing Analysis Overview](phishing-analysis/README.md)** - Summary of all analyses
-- **[Phishing 001: Credential Harvesting](phishing-analysis/phishing-001-credential-harvesting.md)** - Fake Microsoft 365 login page
-- **[Phishing 002: Malicious Attachment](phishing-analysis/phishing-002-malicious-attachment.md)** - Macro-enabled Excel delivering malware
-- **[Phishing 003: Business Email Compromise](phishing-analysis/phishing-003-business-email-compromise.md)** - CEO impersonation wire fraud attempt
-
-Each analysis includes: email header analysis, SPF/DKIM/DMARC checks, URL reputation analysis, attachment sandbox analysis, IOC extraction, and recommended response actions.
-
-## 🔒 Vulnerability Assessment
-
-Vulnerability management documentation and assessment reports:
-
-- **[Vulnerability Assessment Overview](vulnerability-assessment/README.md)** - Vulnerability management methodology
-- **[Internal Network Vulnerability Assessment](vulnerability-assessment/vuln-assessment-001-internal-scan.md)** - Qualys/OpenVAS scan results with risk prioritization and remediation plan
-
-Each assessment includes: executive summary, detailed findings with CVE/CVSS scores, evidence, impact analysis, remediation steps, and prioritized remediation timeline.
+- [Phishing Analysis Overview](phishing-analysis/README.md)
+- [Phishing 001: Credential Harvesting](phishing-analysis/phishing-001-credential-harvesting.md)
+- [Phishing 002: Malicious Attachment](phishing-analysis/phishing-002-malicious-attachment.md)
+- [Phishing 003: Business Email Compromise](phishing-analysis/phishing-003-business-email-compromise.md)
 
 ## 🛠️ Tools & Technologies
 
-**Virtualization & Infrastructure:**
-- VirtualBox (Host-Only networking)
+**Infrastructure**
+- VirtualBox
 - Windows Server 2019
 - Windows 10 Pro
 - Ubuntu Server 22.04
-- Kali Linux 2024
+- Kali Linux
 
-**Security Tools:**
-- **SIEM:** Splunk Free (SPL query development)
-- **EDR:** Wazuh Open Source
-- **Ticketing:** osTicket (incident management and SLA tracking)
-- **Endpoint Logging:** Sysmon (SwiftOnSecurity configuration)
-- **Threat Simulation:** Atomic Red Team
-- **Network Analysis:** Wireshark
-- **Phishing Analysis:** Email headers, VirusTotal, URLScan.io, AbuseIPDB, Any.Run sandbox
-
-**Attack Simulation:**
-- Metasploit Framework
-- Mimikatz (credential dumping)
-- PsExec (lateral movement)
-- Custom PowerShell scripts
+**Security stack**
+- Splunk Free (SIEM)
+- Wazuh (EDR)
+- osTicket (ticketing)
+- Sysmon (endpoint logging)
+- Atomic Red Team (attack simulation)
+- Wireshark (network analysis)
 
 ## 💡 Skills Demonstrated
 
-- **SIEM Operation:** Splunk query development (SPL), alert creation, dashboard building, log correlation
-- **Log Analysis:** Windows Event Logs (Security, System), Sysmon telemetry interpretation, firewall log analysis
-- **Incident Response:** Alert triage, investigation methodology, timeline reconstruction, IOC extraction, scope assessment
-- **Incident Response Playbooks:** SOC Tier 1 playbook development, triage procedures, escalation criteria, response workflows
-- **Incident Ticketing:** osTicket setup, ticket lifecycle management, SLA tracking, case prioritization, escalation workflows
-- **ITSM Fundamentals:** IT Service Management workflows, escalation procedures, stakeholder communication, metrics tracking (MTTA, MTTR)
-- **Threat Intelligence:** IOC enrichment using VirusTotal, AbuseIPDB, URLScan, threat actor TTPs
-- **MITRE ATT&CK Framework:** Tactic and technique mapping, adversary emulation, detection gap analysis
-- **Phishing Analysis:** Email header analysis, SPF/DKIM/DMARC validation, URL defanging, malware sandbox analysis
-- **Endpoint Security:** EDR alert investigation, process tree analysis, memory forensics, persistence mechanism identification
-- **Network Security:** Traffic analysis, protocol anomaly detection, data exfiltration patterns
-- **Network Traffic Analysis:** Wireshark PCAP analysis, C2 beaconing detection, TLS/JA3 fingerprinting, packet timing analysis
-- **Linux Security:** SSH log analysis, auth.log investigation, Linux system hardening, cron job analysis
-- **Active Directory Security:** Domain controller monitoring, authentication attack detection, privileged account monitoring
-- **Vulnerability Management:** Vulnerability scanning, risk prioritization, remediation tracking, CVSS scoring
-- **Documentation:** Technical writing, executive summary creation, professional reporting
+- SIEM operations and SPL query development
+- Log analysis and telemetry correlation
+- Incident triage, investigation, and containment
+- SOC playbook and workflow design
+- Ticketing and SLA-based case management
+- MITRE ATT&CK mapping
+- IOC extraction and threat intelligence enrichment
+- Phishing and malware analysis
+- Endpoint and network security monitoring
+- Technical documentation and reporting
 
 ## 🎓 Certifications
 
-- **Completed:** CompTIA Security+
-- **Completed:** Splunk Core Certified User
-- **Completed:** Google Cybersecurity Certificate
-- **Completed:** Azure Fundamentals (AZ900)
-- **In Progress:** ServiceNow Certified System Administrator
-- **Planned:** CyberDefenders CCD
+- CompTIA Security+
+- Splunk Core Certified User
+- Google Cybersecurity Certificate
+- Azure Fundamentals (AZ-900)
+- ServiceNow Certified System Administrator (in progress)
 
 ## 📫 Contact
 
@@ -187,4 +143,4 @@ Each assessment includes: executive summary, detailed findings with CVE/CVSS sco
 
 ---
 
-*This portfolio is continually updated as I expand my lab environment and tackle new security scenarios. All indicators of compromise (IOCs) used in this portfolio are simulated and defanged for educational purposes.*
+*This portfolio is actively maintained as new lab scenarios are completed. All indicators of compromise (IOCs) are simulated and defanged for educational use.*
