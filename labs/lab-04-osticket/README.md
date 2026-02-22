@@ -35,7 +35,9 @@ network:
     enp0s3:
       dhcp4: no
       addresses: [192.168.10.30/24]
-      gateway4: 192.168.10.1
+      routes:
+        - to: default
+          via: 192.168.10.1
       nameservers:
         addresses: [192.168.10.10, 8.8.8.8]
   version: 2
