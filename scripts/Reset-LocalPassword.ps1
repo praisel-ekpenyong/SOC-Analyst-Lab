@@ -81,7 +81,7 @@ try {
         Write-Host "[SUCCESS] Password reset successfully for: $UserName" -ForegroundColor Green
 
         if ($ForceChangeAtLogon) {
-            Write-Host "[INFO] Note: ForceChangeAtLogon is set. Instruct the user to change their password on next logon." -ForegroundColor Yellow
+            Write-Host "[INFO] ForceChangeAtLogon flag was specified; ensure the user updates their password at next logon." -ForegroundColor Yellow
         }
 
         Write-Host "[INFO] Please instruct the user to change their password on next logon." -ForegroundColor Yellow
