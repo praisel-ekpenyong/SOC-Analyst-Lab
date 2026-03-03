@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Generated outputs (not tracked by default)
+AI-Projects/02-Log-Anomaly-Detection/anomaly_report.csv
+AI-Projects/04-SOAR-Playbook-Automation/playbook_*.md
+!AI-Projects/04-SOAR-Playbook-Automation/playbook_phishing.md
+!AI-Projects/04-SOAR-Playbook-Automation/playbook_lateral_movement.md
+!AI-Projects/04-SOAR-Playbook-Automation/playbook_ransomware.md
+
+# OS
+.DS_Store
+Thumbs.db
