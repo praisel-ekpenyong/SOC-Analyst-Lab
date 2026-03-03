@@ -21,10 +21,11 @@ If you only have a few minutes, start with these:
 4. [Incident Response Playbooks](#incident-response-playbooks)
 5. [Ticketing System Integration](#ticketing-system-integration)
 6. [Phishing Analysis](#phishing-analysis)
-7. [Tools & Technologies](#tools--technologies)
-8. [Skills Demonstrated](#skills-demonstrated)
-9. [Certifications](#certifications)
-10. [Contact](#contact)
+7. [🤖 AI Projects](#-ai-projects)
+8. [Tools & Technologies](#tools--technologies)
+9. [Skills Demonstrated](#skills-demonstrated)
+10. [Certifications](#certifications)
+11. [Contact](#contact)
 
 ## 🏗️ Lab Environment Setup
 
@@ -97,6 +98,16 @@ Practical analysis reports for common phishing techniques:
 - [Phishing 002: Malicious Attachment](phishing-analysis/phishing-002-malicious-attachment.md)
 - [Phishing 003: Business Email Compromise](phishing-analysis/phishing-003-business-email-compromise.md)
 
+## 🤖 AI Projects
+
+Practical AI and ML implementations demonstrating modern SOC workflows:
+
+- [AI Projects Overview](AI-Projects/README.md)
+- **[01 — LLM-Powered Alert Triage Assistant](AI-Projects/01-AI-Alert-Triage/)**: Uses OpenAI API or local ollama to classify SIEM alerts as True/False Positive, generate analyst summaries, and recommend next actions.
+- **[02 — ML-Based Log Anomaly Detection](AI-Projects/02-Log-Anomaly-Detection/)**: Applies Isolation Forest (scikit-learn) to Windows Event Log data to surface anomalous entries without labelled training data.
+- **[03 — GenAI Incident Report Generator](AI-Projects/03-Incident-Report-Generator/)**: Takes structured incident JSON and generates a professional Markdown incident report — including Executive Summary, Timeline, IOCs, Root Cause, and Remediation — in under 60 seconds.
+- **[04 — AI-Generated SOAR Playbook Builder](AI-Projects/04-SOAR-Playbook-Automation/)**: Generates complete, MITRE-aligned SOAR playbooks (Detection → Containment → Eradication → Recovery) for any alert type on demand.
+
 ## 🛠️ Tools & Technologies
 
 **Infrastructure**
@@ -114,6 +125,13 @@ Practical analysis reports for common phishing techniques:
 - Atomic Red Team (attack simulation)
 - Wireshark (network analysis)
 
+**AI / ML**
+- Python 3 (scripting)
+- OpenAI API (GPT-4o-mini / GPT-4o)
+- ollama + llama3 (local LLM, free alternative)
+- scikit-learn (Isolation Forest anomaly detection)
+- pandas / numpy (data processing)
+
 ## 💡 Skills Demonstrated
 
 - SIEM operations and SPL query development
@@ -126,6 +144,10 @@ Practical analysis reports for common phishing techniques:
 - Phishing and malware analysis
 - Endpoint and network security monitoring
 - Technical documentation and reporting
+- AI-assisted alert triage (LLM / OpenAI API)
+- ML-based anomaly detection (Isolation Forest / scikit-learn)
+- GenAI incident report generation
+- AI-generated SOAR playbook automation
 
 ## 🎓 Certifications
 

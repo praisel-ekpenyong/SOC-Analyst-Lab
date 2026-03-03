@@ -1,0 +1,208 @@
+#!/usr/bin/env python3
+"""
+GenAI Incident Report Generator
+=================================
+Takes structured incident data as JSON input and uses an LLM (OpenAI or local
+ollama) to generate a professional, fully-formatted incident report in Markdown.
+
+The report includes:
+  - Executive Summary
+  - Timeline of Events
+  - Indicators of Compromise (IOCs)
+  - Root Cause Analysis
+  - Recommended Remediation Steps
+
+Dependencies:
+    pip install openai requests
+
+Usage:
+    python generate_report.py
+    python generate_report.py --input incident_input.json --output incident_report_output.md
+    python generate_report.py --provider ollama --model llama3
+"""
+
+import argparse
+import json
+import os
+import sys
+from datetime import datetime
+
+# ---------------------------------------------------------------------------
+# LLM provider helpers (same pattern as alert_triage.py)
+# ---------------------------------------------------------------------------
+
+def call_openai(prompt: str, system_prompt: str, model: str = "gpt-4o-mini") -> str:
+    """Send a prompt to the OpenAI Chat Completions API."""
+    try:
+        import openai
+    except ImportError:
+        print("ERROR: 'openai' package not installed. Run: pip install openai")
+        sys.exit(1)
+
+    api_key = os.environ.get("OPENAI_API_KEY")
+    if not api_key:
+        print("ERROR: OPENAI_API_KEY environment variable not set.")
+        sys.exit(1)
+
+    client = openai.OpenAI(api_key=api_key)
+    try:
+        response = client.chat.completions.create(
+            model=model,
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": prompt},
+            ],
+            temperature=0.3,
+        )
+        return response.choices[0].message.content.strip()
+    except openai.OpenAIError as exc:
+        print(f"ERROR calling OpenAI API: {exc}")
+        sys.exit(1)
+
+
+def call_ollama(prompt: str, system_prompt: str, model: str = "llama3") -> str:
+    """Send a prompt to a locally running ollama instance."""
+    try:
+        import requests
+    except ImportError:
+        print("ERROR: 'requests' package not installed. Run: pip install requests")
+        sys.exit(1)
+
+    url = "http://localhost:11434/api/generate"
+    payload = {
+        "model": model,
+        "prompt": prompt,
+        "stream": False,
+        "system": system_prompt,
+    }
+    try:
+        response = requests.post(url, json=payload, timeout=180)
+        response.raise_for_status()
+        return response.json().get("response", "").strip()
+    except requests.exceptions.ConnectionError:
+        print("ERROR: Cannot connect to ollama. Is it running? Start with: ollama serve")
+        sys.exit(1)
+    except requests.exceptions.RequestException as exc:
+        print(f"ERROR calling ollama API: {exc}")
+        sys.exit(1)
+
+
+# ---------------------------------------------------------------------------
+# Report generation
+# ---------------------------------------------------------------------------
+
+SYSTEM_PROMPT = (
+    "You are a senior cybersecurity incident responder and technical writer. "
+    "Generate professional, concise, and well-structured incident reports in Markdown format. "
+    "Use clear headings, bullet points, and tables where appropriate. "
+    "Write in past tense for historical events and present tense for recommendations."
+)
+
+REPORT_PROMPT_TEMPLATE = """
+Generate a complete, professional cybersecurity incident report in Markdown format
+based on the following structured incident data.
+
+The report MUST include exactly these sections (use ## for top-level section headings):
+1. ## Executive Summary
+2. ## Timeline of Events  (use a Markdown table with columns: Time | Event)
+3. ## Indicators of Compromise (IOCs)  (separate subsections for file hashes, domains/IPs, registry keys, file paths)
+4. ## Root Cause Analysis
+5. ## Recommended Remediation Steps  (numbered list, actionable)
+6. ## MITRE ATT&CK Mapping  (table with columns: Technique ID | Technique Name | Description)
+7. ## Lessons Learned
+
+Use the incident metadata (ID, title, severity, date, analyst name) in a header/metadata block at the top.
+
+Incident Data (JSON):
+{incident_json}
+"""
+
+
+def generate_report(incident: dict, provider: str, model: str) -> str:
+    """Call the LLM to generate the full incident report."""
+    prompt = REPORT_PROMPT_TEMPLATE.format(
+        incident_json=json.dumps(incident, indent=2)
+    )
+
+    print(f"[*] Generating report with {provider.upper()} ({model})...")
+
+    if provider == "openai":
+        report = call_openai(prompt, SYSTEM_PROMPT, model=model)
+    else:
+        report = call_ollama(prompt, SYSTEM_PROMPT, model=model)
+
+    return report
+
+
+def save_report(report: str, output_path: str, incident: dict) -> None:
+    """Prepend a generation timestamp and save the report to a Markdown file."""
+    generated_at = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+    header = (
+        f"<!-- Generated by GenAI Incident Report Generator on {generated_at} -->\n"
+        f"<!-- Incident: {incident.get('incident_id', 'N/A')} - {incident.get('title', 'N/A')} -->\n\n"
+    )
+    try:
+        with open(output_path, "w", encoding="utf-8") as fh:
+            fh.write(header + report)
+        print(f"[+] Report saved to: {output_path}")
+    except OSError as exc:
+        print(f"ERROR writing report: {exc}")
+        sys.exit(1)
+
+
+# ---------------------------------------------------------------------------
+# CLI entry point
+# ---------------------------------------------------------------------------
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="GenAI Incident Report Generator"
+    )
+    parser.add_argument(
+        "--input",
+        default="incident_input.json",
+        help="Path to incident JSON input file (default: incident_input.json)",
+    )
+    parser.add_argument(
+        "--output",
+        default="incident_report_output.md",
+        help="Path for the generated Markdown report (default: incident_report_output.md)",
+    )
+    parser.add_argument(
+        "--provider",
+        choices=["openai", "ollama"],
+        default="openai",
+        help="LLM provider to use (default: openai)",
+    )
+    parser.add_argument(
+        "--model",
+        default=None,
+        help="Model name override (default: gpt-4o-mini for OpenAI, llama3 for ollama)",
+    )
+    args = parser.parse_args()
+
+    if args.model is None:
+        args.model = "gpt-4o-mini" if args.provider == "openai" else "llama3"
+
+    # Load incident data
+    try:
+        with open(args.input, "r", encoding="utf-8") as fh:
+            incident = json.load(fh)
+    except FileNotFoundError:
+        print(f"ERROR: Input file not found: {args.input}")
+        sys.exit(1)
+    except json.JSONDecodeError as exc:
+        print(f"ERROR: Could not parse input JSON: {exc}")
+        sys.exit(1)
+
+    print(f"[*] Processing incident: {incident.get('incident_id', 'N/A')} — {incident.get('title', 'N/A')}")
+
+    # Generate the report
+    report = generate_report(incident, provider=args.provider, model=args.model)
+
+    # Save to file
+    save_report(report, args.output, incident)
+
+
+if __name__ == "__main__":
+    main()
